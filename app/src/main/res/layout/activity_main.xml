@@ -8,26 +8,6 @@
     tools:context=".MainActivity"
     tools:ignore="MissingClass">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment1"
-        android:name="com.example.trigonometriccalculator.FragmentGradus"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/answ2"
-        tools:ignore="MissingConstraints">
-    </androidx.fragment.app.FragmentContainerView>
-
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/fragment2"
-        android:name="com.example.trigonometriccalculator.FragmentRadiani"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        app:layout_constraintTop_toBottomOf="@+id/fragment1"
-        tools:ignore="MissingConstraints">
-    </androidx.fragment.app.FragmentContainerView>
-
     <Button
         android:id="@+id/sinbtn"
         android:layout_width="wrap_content"
@@ -45,7 +25,7 @@
         android:id="@+id/answ2"
         android:layout_width="205dp"
         android:layout_height="64dp"
-        android:text="Рассчитать в радианах(activity)"
+        android:text="Рассчитать в радианах"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -58,7 +38,7 @@
         android:id="@+id/answ"
         android:layout_width="205dp"
         android:layout_height="64dp"
-        android:text="Рассчитать в градусах(activity)"
+        android:text="Рассчитать в градусах"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"

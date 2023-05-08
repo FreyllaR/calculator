@@ -71,8 +71,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
     public void onClick(View v) {
-            Fragment frag1 = getSupportFragmentManager().findFragmentById(R.id.fragment1);
-            Fragment frag2 = getSupportFragmentManager().findFragmentById(R.id.fragment2);
             Mist1.setText("");
             Mist2.setText("");
             switch (v.getId()) {
@@ -83,31 +81,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Lnbtn.setEnabled(false);
                     Lgbtn.setEnabled(false);
                     Logbtn.setEnabled(false);
+                    Intent intent1 = new Intent(this, MainActivity2.class);
                     answ.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             if(isNumeric(String.valueOf(EditTextX.getText()))) {
                                 Mist1.setText("");
                                 Mist2.setText("");
                                 String tmp = String.valueOf(Math.sin(Double.parseDouble(String.valueOf(EditTextX.getText()))));
-                                ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                        .setText("Ответ в градусах: " + tmp);
+                                intent1.putExtra("gradusi", tmp);
+                                startActivity(intent1);
                             } else{
                                 Mist1.setText("Введены некорректные данные");
                             }
                         }
-                    });
-                    findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
-                            public void onClick(View v) {
-                                if(isNumeric(String.valueOf(EditTextX.getText()))) {
-                                    Mist1.setText("");
-                                    Mist2.setText("");
-                                    String tmp = String.valueOf(Math.sin(Double.parseDouble(String.valueOf(EditTextX.getText()))));
-                                    ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                            .setText("Ответ в градусах: " + tmp);
-                                } else{
-                                    Mist1.setText("Введены некорректные данные");
-                                }
-                            }
                     });
                     answ2.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
@@ -115,26 +101,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 Mist1.setText("");
                                 Mist2.setText("");
                                 String tmp = String.valueOf(Math.toRadians(Math.sin(Double.parseDouble(String.valueOf(EditTextX.getText())))));
-                                ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                        .setText("Ответ в радианах:" + tmp);
+                                intent1.putExtra("radiani", tmp);
+                                startActivity(intent1);
                             }else{
                                 Mist1.setText("Введены некорректные данные");
                             }
                         }
                     });
-                    findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
-                            public void onClick(View v) {
-                                if(isNumeric(String.valueOf(EditTextX.getText()))) {
-                                    Mist1.setText("");
-                                    Mist2.setText("");
-                                    String tmp = String.valueOf(Math.toRadians(Math.sin(Double.parseDouble(String.valueOf(EditTextX.getText())))));
-                                    ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                            .setText("Ответ в радианах:" + tmp);
-                                }else{
-                                        Mist1.setText("Введены некорректные данные");
-                                    }
-                            }
-                        });
                     Cleanbtn.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             OnClickReset();
@@ -147,10 +120,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Logbtn.setEnabled(true);
                             Mist1.setText("");
                             Mist2.setText("");
-                            ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                    .setText("");
-                            ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                    .setText("");
                         }
                     });
                     break;
@@ -161,27 +130,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Lnbtn.setEnabled(false);
                     Lgbtn.setEnabled(false);
                     Logbtn.setEnabled(false);
+                    Intent intent2 = new Intent(this, MainActivity2.class);
                     answ.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             if(isNumeric(String.valueOf(EditTextX.getText()))) {
                                 Mist1.setText("");
                                 Mist2.setText("");
                                 String tmp = String.valueOf((double) Math.cos(Double.parseDouble(String.valueOf(EditTextX.getText()))));
-                                ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                        .setText("Ответ в градусах: " + tmp);
-                            }else{
-                                Mist1.setText("Введены некорректные данные");
-                            }
-                        }
-                    });
-                    findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if(isNumeric(String.valueOf(EditTextX.getText()))) {
-                                Mist1.setText("");
-                                Mist2.setText("");
-                                String tmp = String.valueOf((double) Math.cos(Double.parseDouble(String.valueOf(EditTextX.getText()))));
-                                ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                        .setText("Ответ в градусах: " + tmp);
+                                intent2.putExtra("gradusi", tmp);
+                                startActivity(intent2);
                             }else{
                                 Mist1.setText("Введены некорректные данные");
                             }
@@ -193,21 +150,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 Mist1.setText("");
                                 Mist2.setText("");
                                 String tmp = String.valueOf(Math.toRadians((double) Math.cos(Double.parseDouble(String.valueOf(EditTextX.getText())))));
-                                ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                        .setText("Ответ в радианах:" + tmp);
-                            }else{
-                                Mist1.setText("Введены некорректные данные");
-                            }
-                        }
-                    });
-                    findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if(isNumeric(String.valueOf(EditTextX.getText()))) {
-                                Mist1.setText("");
-                                Mist2.setText("");
-                                String tmp = String.valueOf(Math.toRadians((double) Math.cos(Double.parseDouble(String.valueOf(EditTextX.getText())))));
-                                ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                        .setText("Ответ в радианах:" + tmp);
+                                intent2.putExtra("radiani", tmp);
+                                startActivity(intent2);
                             }else{
                                 Mist1.setText("Введены некорректные данные");
                             }
@@ -224,10 +168,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Logbtn.setEnabled(true);
                             Mist1.setText("");
                             Mist2.setText("");
-                            ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                    .setText("");
-                            ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                    .setText("");
                         }
                     });
                     break;
@@ -238,27 +178,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Lnbtn.setEnabled(false);
                     Lgbtn.setEnabled(false);
                     Logbtn.setEnabled(false);
+                    Intent intent3 = new Intent(this, MainActivity2.class);
                     answ.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             if(isNumeric(String.valueOf(EditTextX.getText()))) {
                                 Mist1.setText("");
                                 Mist2.setText("");
                                 String tmp = String.valueOf((double) Math.tan(Double.parseDouble(String.valueOf(EditTextX.getText()))));
-                                ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                        .setText("Ответ в градусах: " + tmp);
-                            }else{
-                                Mist1.setText("Введены некорректные данные");
-                            }
-                        }
-                    });
-                    findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if(isNumeric(String.valueOf(EditTextX.getText()))) {
-                                Mist1.setText("");
-                                Mist2.setText("");
-                                String tmp = String.valueOf((double) Math.tan(Double.parseDouble(String.valueOf(EditTextX.getText()))));
-                                ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                        .setText("Ответ в градусах: " + tmp);
+                                intent3.putExtra("gradusi", tmp);
+                                startActivity(intent3);
                             }else{
                                 Mist1.setText("Введены некорректные данные");
                             }
@@ -270,26 +198,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                                          Mist1.setText("");
                                                          Mist2.setText("");
                                                          String tmp = String.valueOf(Math.toRadians((double) Math.tan(Double.parseDouble(String.valueOf(EditTextX.getText())))));
-                                                         ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                                                 .setText("Ответ в радианах:" + tmp);
+                                                         intent3.putExtra("radiani", tmp);
+                                                         startActivity(intent3);
                                                      } else {
                                                          Mist1.setText("Введены некорректные данные");
                                                      }
                                                  }
                                              });
-                    findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if(isNumeric(String.valueOf(EditTextX.getText()))) {
-                                Mist1.setText("");
-                                Mist2.setText("");
-                                String tmp = String.valueOf(Math.toRadians((double) Math.tan(Double.parseDouble(String.valueOf(EditTextX.getText())))));
-                                ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                        .setText("Ответ в радианах:" + tmp);
-                            }else{
-                                Mist1.setText("Введены некорректные данные");
-                            }
-                        }
-                    });
                     Cleanbtn.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             OnClickReset();
@@ -302,10 +217,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Logbtn.setEnabled(true);
                             Mist1.setText("");
                             Mist2.setText("");
-                            ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                    .setText("");
-                            ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                    .setText("");
                         }
                     });
                     break;
@@ -316,27 +227,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Lnbtn.setEnabled(false);
                     Lgbtn.setEnabled(false);
                     Logbtn.setEnabled(false);
+                    Intent intent4 = new Intent(this, MainActivity2.class);
                     answ.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             if(isNumeric(String.valueOf(EditTextX.getText()))) {
                                 Mist1.setText("");
                                 Mist2.setText("");
                                 String tmp = String.valueOf((double) (1.0 / Math.tan(Double.parseDouble(String.valueOf(EditTextX.getText())))));
-                                ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                        .setText("Ответ в градусах: " + tmp);
-                            }else{
-                                Mist1.setText("Введены некорректные данные");
-                            }
-                        }
-                    });
-                    findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if(isNumeric(String.valueOf(EditTextX.getText()))) {
-                                Mist1.setText("");
-                                Mist2.setText("");
-                                String tmp = String.valueOf((double) (1.0 / Math.tan(Double.parseDouble(String.valueOf(EditTextX.getText())))));
-                                ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                        .setText("Ответ в градусах: " + tmp);
+                                intent4.putExtra("gradusi", tmp);
+                                startActivity(intent4);
                             }else{
                                 Mist1.setText("Введены некорректные данные");
                             }
@@ -348,21 +247,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 Mist1.setText("");
                                 Mist2.setText("");
                                 String tmp = String.valueOf(Math.toRadians((double) 1.0 / Math.tan(Double.parseDouble(String.valueOf(EditTextX.getText())))));
-                                ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                        .setText("Ответ в радианах:" + tmp);
-                            }else{
-                                Mist1.setText("Введены некорректные данные");
-                            }
-                        }
-                    });
-                    findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if(isNumeric(String.valueOf(EditTextX.getText()))) {
-                                Mist1.setText("");
-                                Mist2.setText("");
-                                String tmp = String.valueOf(Math.toRadians((double) 1.0 / Math.tan(Double.parseDouble(String.valueOf(EditTextX.getText())))));
-                                ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                        .setText("Ответ в радианах:" + tmp);
+                                intent4.putExtra("radiani", tmp);
+                                startActivity(intent4);
                             }else{
                                 Mist1.setText("Введены некорректные данные");
                             }
@@ -380,10 +266,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Logbtn.setEnabled(true);
                             Mist1.setText("");
                             Mist2.setText("");
-                            ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                    .setText("");
-                            ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                    .setText("");
                         }
                     });
                     break;
@@ -394,27 +276,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Tgbtn.setEnabled(false);
                     Lgbtn.setEnabled(false);
                     Logbtn.setEnabled(false);
+                    Intent intent5 = new Intent(this, MainActivity2.class);
                     answ.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             if(isNumeric(String.valueOf(EditTextX.getText()))) {
                                 Mist1.setText("");
                                 Mist2.setText("");
                                 String tmp = String.valueOf((double) Math.log(Double.parseDouble(String.valueOf(EditTextX.getText()))) / 2.7);
-                                ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                        .setText("Ответ в градусах: " + tmp);
-                            }else{
-                                Mist1.setText("Введены некорректные данные");
-                            }
-                        }
-                    });
-                    findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if(isNumeric(String.valueOf(EditTextX.getText()))) {
-                                Mist1.setText("");
-                                Mist2.setText("");
-                                String tmp = String.valueOf((double) Math.log(Double.parseDouble(String.valueOf(EditTextX.getText()))) / 2.7);
-                                ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                        .setText("Ответ в градусах: " + tmp);
+                                intent5.putExtra("gradusi", tmp);
+                                startActivity(intent5);
                             }else{
                                 Mist1.setText("Введены некорректные данные");
                             }
@@ -426,26 +296,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                                          Mist1.setText("");
                                                          Mist2.setText("");
                                                          String tmp = String.valueOf(Math.toRadians((double) Math.log(Double.parseDouble(String.valueOf(EditTextX.getText())) / 2.7)));
-                                                         ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                                                 .setText("Ответ в радианах:" + tmp);
+                                                         intent5.putExtra("radiani", tmp);
+                                                         startActivity(intent5);
                                                      } else {
                                                          Mist1.setText("Введены некорректные данные");
                                                      }
                                                  }
                                              });
-                    findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if(isNumeric(String.valueOf(EditTextX.getText()))) {
-                                Mist1.setText("");
-                                Mist2.setText("");
-                                String tmp = String.valueOf(Math.toRadians((double) Math.log(Double.parseDouble(String.valueOf(EditTextX.getText()))/ 2.7)));
-                                ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                        .setText("Ответ в радианах:" + tmp);
-                            }else{
-                                Mist1.setText("Введены некорректные данные");
-                            }
-                       }
-                    });
                     Cleanbtn.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             OnClickReset();
@@ -458,10 +315,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Logbtn.setEnabled(true);
                             Mist1.setText("");
                             Mist2.setText("");
-                            ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                    .setText("");
-                            ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                    .setText("");
                         }
                     });
                     break;
@@ -472,31 +325,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Tgbtn.setEnabled(false);
                     Lnbtn.setEnabled(false);
                     Logbtn.setEnabled(false);
+                    Intent intent6 = new Intent(this, MainActivity2.class);
                     answ.setOnClickListener(new View.OnClickListener() {
                     public void onClick(View v) {
                         if(isNumeric(String.valueOf(EditTextX.getText()))) {
                             Mist1.setText("");
                             Mist2.setText("");
                             String tmp = String.valueOf((double) Math.log(Double.parseDouble(String.valueOf(EditTextX.getText()))));
-                            ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                    .setText("Ответ в градусах: " + tmp);
+                            intent6.putExtra("gradusi", tmp);
+                            startActivity(intent6);
                         }else{
                             Mist1.setText("Введены некорректные данные");
                         }
                     }
-                    });
-                    findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if(isNumeric(String.valueOf(EditTextX.getText()))) {
-                                Mist1.setText("");
-                                Mist2.setText("");
-                                String tmp = String.valueOf((double) Math.log(Double.parseDouble(String.valueOf(EditTextX.getText()))));
-                                ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                        .setText("Ответ в градусах: " + tmp);
-                            }else{
-                                Mist1.setText("Введены некорректные данные");
-                            }
-                        }
                     });
                     answ2.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
@@ -504,21 +345,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 Mist1.setText("");
                                 Mist2.setText("");
                                 String tmp = String.valueOf(Math.toRadians((double) Math.log(Double.parseDouble(String.valueOf(EditTextX.getText())))));
-                                ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                        .setText("Ответ в радианах:" + tmp);
-                            }else{
-                                Mist1.setText("Введены некорректные данные");
-                            }
-                        }
-                    });
-                    findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if(isNumeric(String.valueOf(EditTextX.getText()))) {
-                                Mist1.setText("");
-                                Mist2.setText("");
-                                String tmp = String.valueOf(Math.toRadians((double) Math.log(Double.parseDouble(String.valueOf(EditTextX.getText())))));
-                                ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                        .setText("Ответ в радианах:" + tmp);
+                                intent6.putExtra("radiani", tmp);
+                                startActivity(intent6);
                             }else{
                                 Mist1.setText("Введены некорректные данные");
                             }
@@ -536,10 +364,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             Logbtn.setEnabled(true);
                             Mist1.setText("");
                             Mist2.setText("");
-                            ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                    .setText("");
-                            ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                    .setText("");
                         }
                     });
                     break;
@@ -551,33 +375,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Lgbtn.setEnabled(false);
                     Lnbtn.setEnabled(false);
                     EditTextY.setEnabled(true);
+                    Intent intent7 = new Intent(this, MainActivity2.class);
                     answ.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
                             if(isNumeric(String.valueOf(EditTextX.getText())) & isNumeric(String.valueOf(EditTextY.getText()))) {
                                 Mist1.setText("");
                                 Mist2.setText("");
                                 String tmp = String.valueOf((double) Math.log(Math.log(Double.parseDouble(String.valueOf(EditTextX.getText()))) / Math.log(Double.parseDouble(String.valueOf(EditTextY.getText())))));
-                                ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                        .setText("Ответ в градусах: " + tmp);
-                            }else if(!(isNumeric(String.valueOf(EditTextX.getText()))) & isNumeric(String.valueOf(EditTextY.getText()))){
-                                Mist1.setText("Введены некорректные данные");
-                            }else if(isNumeric(String.valueOf(EditTextX.getText())) & !(isNumeric(String.valueOf(EditTextY.getText())))){
-                                Mist2.setText("Введены некорректные данные");
-                            }
-                            else{
-                                Mist1.setText("Введены некорректные данные");
-                                Mist2.setText("Введены некорректные данные");
-                            }
-                        }
-                    });
-                    findViewById(R.id.button1).setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if(isNumeric(String.valueOf(EditTextX.getText())) & isNumeric(String.valueOf(EditTextY.getText()))) {
-                                Mist1.setText("");
-                                Mist2.setText("");
-                                String tmp = String.valueOf((double) Math.log(Math.log(Double.parseDouble(String.valueOf(EditTextX.getText()))) / Math.log(Double.parseDouble(String.valueOf(EditTextY.getText())))));
-                                ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                        .setText("Ответ в градусах: " + tmp);
+                                intent7.putExtra("gradusi", tmp);
+                                startActivity(intent7);
                             }else if(!(isNumeric(String.valueOf(EditTextX.getText()))) & isNumeric(String.valueOf(EditTextY.getText()))){
                                 Mist1.setText("Введены некорректные данные");
                             }else if(isNumeric(String.valueOf(EditTextX.getText())) & !(isNumeric(String.valueOf(EditTextY.getText())))){
@@ -595,27 +401,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                                 Mist1.setText("");
                                 Mist2.setText("");
                                 String tmp = String.valueOf(Math.toRadians((double) Math.log(Math.log(Double.parseDouble(String.valueOf(EditTextX.getText()))) / Math.log(Double.parseDouble(String.valueOf(EditTextY.getText()))))));
-                                ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                        .setText("Ответ в радианах:" + tmp);
-                            }else if(!(isNumeric(String.valueOf(EditTextX.getText()))) & isNumeric(String.valueOf(EditTextY.getText()))){
-                                Mist1.setText("Введены некорректные данные");
-                            }else if(isNumeric(String.valueOf(EditTextX.getText())) & !(isNumeric(String.valueOf(EditTextY.getText())))){
-                                Mist2.setText("Введены некорректные данные");
-                            }
-                            else{
-                                Mist1.setText("Введены некорректные данные");
-                                Mist2.setText("Введены некорректные данные");
-                            }
-                        }
-                    });
-                    findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            if(isNumeric(String.valueOf(EditTextX.getText())) & isNumeric(String.valueOf(EditTextY.getText()))) {
-                                Mist1.setText("");
-                                Mist2.setText("");
-                                String tmp = String.valueOf(Math.toRadians((double) Math.log(Math.log(Double.parseDouble(String.valueOf(EditTextX.getText()))) / Math.log(Double.parseDouble(String.valueOf(EditTextY.getText()))))));
-                                ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                        .setText("Ответ в радианах:" + tmp);
+                                intent7.putExtra("radiani", tmp);
+                                startActivity(intent7);
                             }else if(!(isNumeric(String.valueOf(EditTextX.getText()))) & isNumeric(String.valueOf(EditTextY.getText()))){
                                 Mist1.setText("Введены некорректные данные");
                             }else if(isNumeric(String.valueOf(EditTextX.getText())) & !(isNumeric(String.valueOf(EditTextY.getText())))){
@@ -640,10 +427,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                             EditTextY.setEnabled(false);
                             Mist1.setText("");
                             Mist2.setText("");
-                            ((TextView) frag1.getView().findViewById(R.id.textViewg))
-                                    .setText("");
-                            ((TextView) frag2.getView().findViewById(R.id.textViewr))
-                                    .setText("");
                         }
                     });
                     break;
