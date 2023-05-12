@@ -1,16 +1,22 @@
 package com.example.trigonometriccalculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.viewpager.widget.ViewPager;
+import androidx.viewpager2.adapter.FragmentStateAdapter;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toolbar;
 
 import com.example.trigonometriccalculator.databinding.ActivityMain2Binding;
 import com.example.trigonometriccalculator.databinding.ActivityMainBinding;
+import com.google.android.material.tabs.TabLayout;
+import com.google.android.material.tabs.TabLayoutMediator;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -33,12 +39,6 @@ public class MainActivity2 extends AppCompatActivity {
         txt1.setText(name);
         String name2 = extras.getString("radiani");
         txt2.setText(name2);
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.mymenu, menu);
-        return true;
     }
 
 
